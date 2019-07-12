@@ -8,7 +8,7 @@ const tool = props => {
       <h3 className="toolName">{props.tool.name}</h3>
       <span
         className={`toolAvail ${props.tool.availability} ? available : notAvailable`}>
-        {props.tool.availability ? 'Available' : 'Unavailable'}
+        {props.tool.availability ? 'Available ' : 'Unavailable '} from {props.tool.owner}
       </span>
       <p className="toolDesc">{props.tool.desc}</p>
       <p className="toolPrice">${props.tool.price}</p>
