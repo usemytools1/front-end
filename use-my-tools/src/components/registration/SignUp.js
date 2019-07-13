@@ -22,7 +22,7 @@ class SignUp extends React.Component {
     handleLogin = e => {
         e.preventDefault();
         this.props.login(this.state.credentials)
-        .then(() => this.props.history.push("/ToolList"));
+        .then(() => this.props.history.push("/tool-list"));
     };
 
     render() {

@@ -8,6 +8,9 @@ class Login extends React.Component {
     }
   };
 
+  handleClick = e => {
+      this.props.history.push("sign-up")
+  }
   handleChange = e => {
     this.setState({
       credentials: {
@@ -21,7 +24,7 @@ class Login extends React.Component {
     e.preventDefault();
     this.props
       .login(this.state.credentials)
-      .then(() => this.props.history.push("/ToolList"));
+      .then(() => this.props.history.push("/tool-list"));
   };
 
   render() {
@@ -40,8 +43,9 @@ class Login extends React.Component {
             value={this.state.credentials.password}
             onChange={this.handleChange}
           />
-          <button>Log in</button>
+          <button>Log In</button>
         </form>
+        <button onClick={this.handleClick}>Sign Up</button>
       </div>
     );
   }
