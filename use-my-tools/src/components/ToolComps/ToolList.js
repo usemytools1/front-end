@@ -1,14 +1,15 @@
-// Will iterate over the tools and map them
-import React, { Component } from 'react'
+import React from 'react'
+import Tool from './Tool'
+import './styles/styles.css'
 
-export class ToolList extends Component {
-  render() {
-    return (
-      <div>
-        
-      </div>
-    )
-  }
+const ToolList = props => {
+  return (
+    <div className="toolCards">
+      {props.tools.map(tool => {
+        return <Tool tool={tool}/>
+      })}
+    </div>
+  )
 }
 
 export default ToolList

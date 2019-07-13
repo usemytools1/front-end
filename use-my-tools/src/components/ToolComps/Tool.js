@@ -1,5 +1,5 @@
-// create the card for the tool
 import React from 'react'
+import './styles/styles.css'
 
 const tool = props => {
   return (
@@ -11,7 +11,6 @@ const tool = props => {
         {props.tool.availability ? 'Available ' : 'Unavailable '} from {props.tool.owner}
       </span>
       <p className="toolDesc">{props.tool.desc}</p>
-      <p className="toolPrice">${props.tool.price}</p>
       {
         props.tool.availability ?
         <button className="canBeBorrowed">Borrow</button> :
