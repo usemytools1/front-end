@@ -6,9 +6,10 @@ const tool = props => {
     <div className="toolCard">
       <img className="toolImg" alt={props.tool.name} src={props.tool.img}></img>
       <h3 className="toolName">{props.tool.name}</h3>
+      <p className="toolOwner">Owner: {props.tool.owner}</p>
       <span
-        className={`toolAvail ${props.tool.availability} ? available : notAvailable`}>
-        {props.tool.availability ? 'Available ' : 'Unavailable '} from {props.tool.owner}
+        className={`${props.tool.availability} ? isAvail : isntAvail`}>
+        {props.tool.availability ? 'Available ' : 'Unavailable '}
       </span>
       <p className="toolDesc">{props.tool.desc}</p>
       {
