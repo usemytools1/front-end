@@ -1,62 +1,47 @@
-import React from "react";
+import React, { Component } from 'react';
+import './styles/styles.css'
 
-class AddATool extends React.Component {
-    state = {
-        tool: {
-            name: "",
-            brand: "",
-            category: "",
-            description: ""
-        }
-    };
-
-    handleChange = e => {
-        this.setState({
-            tool: {
-                ...this.state.tool,
-                [e.target.name]: e.target.value
-            }
-        });
-    };
-
-    handleAdd = e => {
-        e.preventDefault();
-        this.props.AddTool(this.state.tool);
-    };
-
-    render() {
-        return (
-            <div>
-                <form onSubmit={this.handleAdd}>
-                    <input
-                        type="text"
-                        name="name"
-                        value={this.state.tool.name}
-                        onChange={this.handleChange}
-                    />
-                    <input
-                        type="text"
-                        name="brand"
-                        value={this.state.tool.brand}
-                        onChange={this.handleChange}
-                    />
-                    <input
-                        type="text"
-                        name="category"
-                        value={this.state.tool.category}
-                        onChange={this.handleChange}
-                    />
-                    <input
-                        type="text"
-                        name="description"
-                        value={this.state.tool.description}
-                        onChange={this.handleChange}
-                    />
-                    <button>Add Tool</button>
-                </form>
-            </div>
-        );
+export default class AddATool extends Component {
+  state = {
+    tool: {
+      name: '',
+      img: '',
+      owner: '',
+      availability: true,
+      desc: '',
     }
+  }
+  inputChange = e => {
+    e.preventDefault();
+    this.setState({
+      ...this.state,
+      tool: { ...this.state.tool, [e.target.name]: e.target.value }
+    })
+  }
+  newTool = e => {
+    e.preventDefault()
+    this.props.addTool(this.state.tool)
+    this.setState({
+      tool: {
+        name: '',
+        img: '',
+        owner: '',
+        availability: true,
+        desc: ''
+      }
+    })
+  }
+  render() {
+    return (
+      <div className="formDiv">
+        <form onSubmit={this.newTool} className="addToolForm">
+          <h2 className="formTitle">Add a Tool</h2>
+          <input type="text" name="name" placeholder="Tool name" value={this.state.tool.name} onChange={this.inputChange}></input>
+          <input type="file" name="img" placeholder="Tool image link" value={this.state.tool.img} onChange={this.inputChange}></input>
+          <input type="text" name="desc" placeholder="Tool description" value={this.state.tool.desc} onChange={this.inputChange}></input>
+          <button className="addToolBtn">Add Tool</button>
+        </form>
+      </div>
+    )
+  }
 }
-
-export default AddATool;
