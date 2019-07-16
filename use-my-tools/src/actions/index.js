@@ -10,7 +10,6 @@ export const loginAction = creds => dispatch => {
     dispatch({ type: LOGIN_START });
     return axios   
      .post("https://use-my-tools-1.herokuapp.com/api/auth/login", creds)
-     .then(res => console.log(res.data))
      .then(res => localStorage.setItem("token", res.data.payload));
 };
 
@@ -18,7 +17,6 @@ export const signUpAction = creds => dispatch => {
     dispatch({ type: SIGN_UP_START });
     return axios   
      .post("https://use-my-tools-1.herokuapp.com/api/auth/register", creds)
-     .then(res => console.log(res.data))
      .then(res => localStorage.setItem("token", res.data.payload));
 };
 
