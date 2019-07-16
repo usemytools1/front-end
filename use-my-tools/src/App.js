@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-
 import Login from "./components/registration/Login";
 import ToolList from "./components/ToolComps/ToolList";
 
