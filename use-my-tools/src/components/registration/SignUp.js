@@ -1,10 +1,14 @@
 import React from "react";
+import { connect } from "react-redux";
+import { signUpAction } from "../../actions";
+
+
 
 
 class SignUp extends React.Component {
     state = {
         credentials: {
-            email: "",
+            // email: "",
             username: "",
             password: ""
         }
@@ -19,39 +23,52 @@ class SignUp extends React.Component {
         });
     };
 
-    handleLogin = e => {
+    handleSignUp = e => {
         e.preventDefault();
-        this.props.login(this.state.credentials)
+        this.props.signUpAction(this.state.credentials)
         .then(() => this.props.history.push("/tool-list"));
     };
 
     render() {
         return (
         <div>
-            <form onSubmit={this.handleLogin}>
-            <input
+            <form onSubmit={this.handleSignUp}>
+            {/* <input
             type="text"
-            name="username"
-            value={this.state.credentials.username}
+            placeholder="Email"
+            name="email"
+            value={this.state.credentials.email}
             onChange={this.handleChange}
-            />
+            /> */}
             <input
             type="text"
             name="username"
+            placeholder="Username"
             value={this.state.credentials.username}
             onChange={this.handleChange}
             />
             <input
             type="password"
+            placeholder="Password"
             name="password"
             value={this.state.credentials.password}
             onChange={this.handleChange}
             />
-            <button>Log in</button>
+            <button>Sign Up</button>
         </form>
       </div>
     );
   }
 }
 
-export default SignUp
+const mapStateToProps = state => ({
+    tools: state.tools,
+    error: state.error,
+    isLoading: state.isLoading
+  });
+  
+  export default connect(
+    mapStateToProps,
+    { signUpAction }
+  )(SignUp);
+  
