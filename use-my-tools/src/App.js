@@ -9,6 +9,7 @@ function App() {
         <Router>
             <div className="App">
                 <Route exact path="/login" render={props => <Login {...props} />} />
+                <Route exact path="/sign-up" render={props => <SignUp {...props} />} />
                 <Route path="/tool-list" render={props => <ToolList {...props} />} />
             </div>
         </Router>

@@ -26,7 +26,7 @@ class Login extends React.Component {
   handleLogin = e => {
     e.preventDefault();
     this.props
-      .login(this.state.credentials)
+      .loginAction(this.state.credentials)
       .then(() => this.props.history.push("/tool-list"));
   };
 
@@ -36,12 +36,14 @@ class Login extends React.Component {
         <form onSubmit={this.handleLogin}>
           <input
             type="text"
+            placeholder="Username"
             name="username"
             value={this.state.credentials.username}
             onChange={this.handleChange}
           />
           <input
             type="password"
+            placeholder="Password"
             name="password"
             value={this.state.credentials.password}
             onChange={this.handleChange}

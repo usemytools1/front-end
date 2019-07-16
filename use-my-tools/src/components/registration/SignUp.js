@@ -8,7 +8,7 @@ import { signUpAction } from "../../actions";
 class SignUp extends React.Component {
     state = {
         credentials: {
-            email: "",
+            // email: "",
             username: "",
             password: ""
         }
@@ -25,7 +25,7 @@ class SignUp extends React.Component {
 
     handleSignUp = e => {
         e.preventDefault();
-        this.props.login(this.state.credentials)
+        this.props.signUpAction(this.state.credentials)
         .then(() => this.props.history.push("/tool-list"));
     };
 
@@ -33,20 +33,23 @@ class SignUp extends React.Component {
         return (
         <div>
             <form onSubmit={this.handleSignUp}>
-            <input
+            {/* <input
             type="text"
-            name="username"
-            value={this.state.credentials.username}
+            placeholder="Email"
+            name="email"
+            value={this.state.credentials.email}
             onChange={this.handleChange}
-            />
+            /> */}
             <input
             type="text"
             name="username"
+            placeholder="Username"
             value={this.state.credentials.username}
             onChange={this.handleChange}
             />
             <input
             type="password"
+            placeholder="Password"
             name="password"
             value={this.state.credentials.password}
             onChange={this.handleChange}

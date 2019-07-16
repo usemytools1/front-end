@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export const LOGIN_START = "LOGIN_START";
+export const SIGN_UP_START = "SIGN_UP_START";
 export const FETCH_DATA_START = "FETCH_DATA_START";
 export const FETCH_DATA_SUCCESS = "FETCH_DATA_SUCCESS";
 export const FETCH_DATA_FAILURE = "FETCH_DATA_FAILURE";
@@ -8,7 +9,16 @@ export const FETCH_DATA_FAILURE = "FETCH_DATA_FAILURE";
 export const loginAction = creds => dispatch => {
     dispatch({ type: LOGIN_START });
     return axios   
-     .post("http://localhost:5000/api/login", creds)
+     .post("https://use-my-tools-1.herokuapp.com/api/auth/login", creds)
+     .then(res => console.log(res.data))
+     .then(res => localStorage.setItem("token", res.data.payload));
+};
+
+export const signUpAction = creds => dispatch => {
+    dispatch({ type: SIGN_UP_START });
+    return axios   
+     .post("https://use-my-tools-1.herokuapp.com/api/auth/register", creds)
+     .then(res => console.log(res.data))
      .then(res => localStorage.setItem("token", res.data.payload));
 };
 
