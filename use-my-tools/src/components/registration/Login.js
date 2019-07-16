@@ -1,4 +1,7 @@
 import React from "react";
+import { connect } from "react-redux";
+import { loginAction } from "../../actions";
+
 
 class Login extends React.Component {
   state = {
@@ -43,7 +46,7 @@ class Login extends React.Component {
             value={this.state.credentials.password}
             onChange={this.handleChange}
           />
-          <button>Log In</button>
+          <button>Login</button>
         </form>
         <button onClick={this.handleClick}>Sign Up</button>
       </div>
@@ -51,4 +54,13 @@ class Login extends React.Component {
   }
 }
 
-export default Login
+const mapStateToProps = state => ({
+  tools: state.tools,
+  error: state.error,
+  isLoading: state.isLoading
+});
+
+export default connect(
+  mapStateToProps,
+  { loginAction }
+)(Login);

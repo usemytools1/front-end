@@ -1,4 +1,8 @@
 import React from "react";
+import { connect } from "react-redux";
+import { signUpAction } from "../../actions";
+
+
 
 
 class SignUp extends React.Component {
@@ -19,7 +23,7 @@ class SignUp extends React.Component {
         });
     };
 
-    handleLogin = e => {
+    handleSignUp = e => {
         e.preventDefault();
         this.props.login(this.state.credentials)
         .then(() => this.props.history.push("/tool-list"));
@@ -28,7 +32,7 @@ class SignUp extends React.Component {
     render() {
         return (
         <div>
-            <form onSubmit={this.handleLogin}>
+            <form onSubmit={this.handleSignUp}>
             <input
             type="text"
             name="username"
@@ -47,11 +51,21 @@ class SignUp extends React.Component {
             value={this.state.credentials.password}
             onChange={this.handleChange}
             />
-            <button>Log in</button>
+            <button>Sign Up</button>
         </form>
       </div>
     );
   }
 }
 
-export default SignUp
+const mapStateToProps = state => ({
+    tools: state.tools,
+    error: state.error,
+    isLoading: state.isLoading
+  });
+  
+  export default connect(
+    mapStateToProps,
+    { signUpAction }
+  )(SignUp);
+  
