@@ -35,11 +35,11 @@ export default class AddATool extends Component {
     return (
       <div className="formDiv">
         <form onSubmit={this.newTool} className="addToolForm">
-          <h2 className="formTitle">Add a Tool</h2>
-          <input type="text" name="name" placeholder="Tool name" value={this.state.tool.name} onChange={this.inputChange}></input>
-          <input type="file" name="img" placeholder="Tool image link" value={this.state.tool.img} onChange={this.inputChange}></input>
-          <input type="text" name="desc" placeholder="Tool description" value={this.state.tool.desc} onChange={this.inputChange}></input>
-          <button className="addToolBtn">Add Tool</button>
+              <h2 className="formTitle">Add a Tool</h2>
+              <input type="text" name="name" placeholder="Tool name" value={this.state.tool.name} onChange={this.inputChange}></input>
+              <input type="file" name="img" placeholder="Tool image link" value={this.state.tool.img} onChange={this.inputChange}></input>
+              <input type="text" name="desc" placeholder="Tool description" value={this.state.tool.desc} onChange={this.inputChange}></input>
+              <button className="addToolBtn">Add Tool</button>
         </form>
       </div>
     )
