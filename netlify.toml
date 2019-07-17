@@ -1,7 +1,7 @@
 [build]
    base = "frontend/"
 
-   publish = "front-end/build/"
+   publish = "front-end/"
 
 [[redirects]]
    from = "/*"
