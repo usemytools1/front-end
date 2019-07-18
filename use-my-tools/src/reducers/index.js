@@ -1,17 +1,6 @@
-import { LOGIN_START, FETCH_DATA_START, FETCH_DATA_SUCCESS, FETCH_DATA_FAILURE } from "../actions";
+import { LOGIN_START, FETCH_DATA_START, FETCH_DATA_SUCCESS, FETCH_DATA_FAILURE, ADD_TOOL } from "../actions";
 
-const initialState = {
-  userOwnsTools: [],
-  userBorrowingTools: [],
-  fetchingTools: false,
-  tools: [{
-    name: "hammer", 
-    img: "fake.img",
-    desc: "you hit things with this"
-  }],
-  loggingIn: false,
-  error: ""
-};
+const initialState = {};
 
 function reducer(state = initialState, action) {
   switch (action.type) {
@@ -24,14 +13,14 @@ function reducer(state = initialState, action) {
     case FETCH_DATA_START: {
         console.log("Start" )
         return {
-            ...state, 
+            ...state,
             error: "",
             fetchingTools: true
         };
     }
     case FETCH_DATA_SUCCESS: {
         return {
-            ...state, 
+            ...state,
             error: "",
             fetchingTools: false,
             friends: action.payload
@@ -39,10 +28,16 @@ function reducer(state = initialState, action) {
     }
     case FETCH_DATA_FAILURE: {
         return {
-            ...state, 
+            ...state,
             error: action.payload
         }
     }
+    case ADD_TOOL:
+      return {
+        ...state,
+        tools: [...state.tools, action.payload],
+        addingTool: true
+      }
     default:
       return state;
   }
