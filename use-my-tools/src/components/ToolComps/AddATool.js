@@ -58,4 +58,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { addTool }
-)(Login);
+)(AddATool);
