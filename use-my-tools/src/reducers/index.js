@@ -34,11 +34,12 @@ function reducer(state = initialState, action) {
         };
     }
     case FETCH_DATA_SUCCESS: {
+        console.log("Fetched")
         return {
             ...state,
             error: "",
             fetchingTools: false,
-            friends: action.payload
+            tools: action.payload
         };
     }
     case FETCH_DATA_FAILURE: {
