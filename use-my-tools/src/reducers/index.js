@@ -1,11 +1,20 @@
 import { LOGIN_START, FETCH_DATA_START, FETCH_DATA_SUCCESS, FETCH_DATA_FAILURE } from "../actions";
 
 const initialState = {
+  userOwnsTools: [],
+  userBorrowingTools: [],
   fetchingTools: false,
-  tools: [],
+  tools: [{
+    owner: "",
+    availability: false,
+    name: "hammer", 
+    img: "fake.img",
+    desc: "you hit things with this"
+  }],
   loggingIn: false,
   error: ""
 };
+
 
 function reducer(state = initialState, action) {
   switch (action.type) {
