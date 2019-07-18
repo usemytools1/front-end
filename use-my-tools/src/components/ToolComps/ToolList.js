@@ -5,11 +5,15 @@ import './styles/styles.css'
 
 const ToolList = props => {
   return (
-    <div className="toolCards">
+    <div>
+    <a href="/add-tool">Add A Tool</a>
+      <div className="toolCards">
       {props.tools.map((tool, i) => {
         return <Tool key={i} tool={tool}/>
       })}
     </div>
+    </div>
+
   )
 }
 
