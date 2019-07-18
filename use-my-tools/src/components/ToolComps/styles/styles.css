@@ -1,57 +1,139 @@
 html {
   font-size: 62.5%
 }
+
 .toolCards {
   display: flex;
+  height: auto;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
 }
+
 .toolCard {
   text-align: center;
   background: #0E3746;
-  width: 10em;
-  font-size: 2em;
-  color: #EAE8DC;
+  width: 8em;
+  font-size: 1.6em;
+  color: #2CAFDE;
   border-radius: 0.5em;
   font-family: arial;
-  font-weight: 200;
+  font-weight: 300;
   margin: 0.25em;
 }
+
 .toolImg {
   width: 100%;
   height: auto;
-  border-radius: 0.5em
+  border-radius: 0.5em;
+  max-height: 10em;
+  background-size: cover;
 }
+
 .toolName {
   margin-top: 0.5em;
+  font-size: 1.2em;
+  font-weight: 100;
 }
+
 .toolInfo {
   padding: 0.2em 0.5em;
 }
+
 .isAvail {
-  color: #99D815;
+  color: #049125;
   margin: 0.1em 0;
 }
+
 .isntAvail {
-  color: #BE2623;
+  color: #E02600;
 }
+
 .toolDesc {
   font-size: 0.8em;
 }
-.borrowBtn {
-  border: 1px solid #F27777;
+
+.viewBtn {
+  border: 1px solid #2CAFDE;
   padding: 0.5em 2em;
   border-radius: 9999px;
-  color: #F27777;
+  color: #2CAFDE;
   background: none;
   outline: none;
+  transition: ease 0.25s;
 }
-.borrowBtn:hover {
-  background: #F27777;
-  color: #0E3746;
 
+.viewBtn:hover {
+  background: #2CAFDE;
+  color: #0E3746;
+  transition: ease 0.25s;
 }
-.borrowBtn:active {
+
+.viewBtn:active,
+.addToolBtn:active {
   transform: translateY(3px)
 }
-.toolInfo > * {
+
+.toolInfo>* {
   margin: 0.45em 0;
+}
+
+.addToolForm {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 25%;
+  background: #252525;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8em;
+  border-radius: 0.5em;
+}
+
+.formDiv {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addToolForm>* {
+  margin: 0.5em
+}
+
+.addToolForm input {
+  border: none;
+  width: 100%;
+  color: white;
+  background: none;
+  border-bottom: 1px solid white;
+  font-size: 2.5em;
+  padding: 0.25em 0;
+  outline: none;
+}
+
+::placeholder {
+  color: white
+}
+
+.addToolBtn {
+  border-radius: 10000px;
+  padding: 0.5em 5em;
+  color: white;
+  background: none;
+  border: 1px solid white;
+  outline: none;
+  transition: ease 0.25s;
+}
+
+.addToolBtn:hover {
+  background: white;
+  color: #252525;
+  transition: ease 0.25s;
+}
+
+.formTitle {
+  color: white;
+  font-size: 3em;
 }
