@@ -1,7 +1,8 @@
 import React from 'react'
+import { connect } from "react-redux";
 import './styles/styles.css'
 
-const tool = props => {
+const Tool = props => {
   return (
     <div className="toolCard">
       <img className="toolImg" alt={props.tool.name} src={props.tool.img}></img>
@@ -21,4 +22,15 @@ const tool = props => {
   )
 }
 
-export default tool
+const mapStateToProps = state => ({
+  tools: state.tools,
+  error: state.error,
+  isLoading: state.isLoading
+});
+
+
+export default connect(
+  mapStateToProps,
+  {}
+)(Tool);
+
