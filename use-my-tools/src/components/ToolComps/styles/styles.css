@@ -1,0 +1,57 @@
+html {
+  font-size: 62.5%
+}
+.toolCards {
+  display: flex;
+}
+.toolCard {
+  text-align: center;
+  background: #0E3746;
+  width: 10em;
+  font-size: 2em;
+  color: #EAE8DC;
+  border-radius: 0.5em;
+  font-family: arial;
+  font-weight: 200;
+  margin: 0.25em;
+}
+.toolImg {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5em
+}
+.toolName {
+  margin-top: 0.5em;
+}
+.toolInfo {
+  padding: 0.2em 0.5em;
+}
+.isAvail {
+  color: #99D815;
+  margin: 0.1em 0;
+}
+.isntAvail {
+  color: #BE2623;
+}
+.toolDesc {
+  font-size: 0.8em;
+}
+.borrowBtn {
+  border: 1px solid #F27777;
+  padding: 0.5em 2em;
+  border-radius: 9999px;
+  color: #F27777;
+  background: none;
+  outline: none;
+}
+.borrowBtn:hover {
+  background: #F27777;
+  color: #0E3746;
+
+}
+.borrowBtn:active {
+  transform: translateY(3px)
+}
+.toolInfo > * {
+  margin: 0.45em 0;
+}
