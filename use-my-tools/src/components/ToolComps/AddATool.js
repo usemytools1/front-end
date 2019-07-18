@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
+import {addTool} from "../../actions";
 import './styles/styles.css'
 
-export default class AddATool extends Component {
+class AddATool extends Component {
   state = {
     tool: {
       name: '',
@@ -45,3 +47,15 @@ export default class AddATool extends Component {
     )
   }
 }
+
+
+const mapStateToProps = state => ({
+  tools: state.tools,
+  error: state.error,
+  isLoading: state.isLoading
+});
+
+export default connect(
+  mapStateToProps,
+  { addTool }
+)(Login);
