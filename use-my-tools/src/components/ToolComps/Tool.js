@@ -13,11 +13,7 @@ const Tool = props => {
         {props.tool.availability ? 'Available ' : 'Unavailable '}
       </span>
       <p className="toolDesc">{props.tool.desc}</p>
-      {
-        props.tool.availability ?
-        <button className="canBeBorrowed">Borrow</button> :
-        <button className="cantBeBorrowed" disabled >Borrow</button>
-      }
+      <button className="borrowBtn">Borrow</button>
     </div>
   )
 }
