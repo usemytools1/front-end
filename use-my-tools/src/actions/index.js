@@ -25,23 +25,23 @@ export const signUpAction = creds => dispatch => {
 };
 
 export const getTools = () => dispatch => {
-  dispatch({ type: FETCH_DATA_START });
-  axios
-    .get("http://localhost:3333/tools", {
-      headers: { Authorization: localStorage.getItem("token") }
-    })
-    .then(res => {
-      console.log(res.data);
-      dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data });
-    })
-    .catch(err => {
-      console.log(err.response);
-      if (err.response.status === 403) {
-        localStorage.removeItem("token");
-      }
-      dispatch({ type: FETCH_DATA_FAILURE, payload: err.response });
-    });
-};
+    dispatch({ type: FETCH_DATA_START });
+    axios
+      .get("https://use-my-tools-1.herokuapp.com/api/tools", {
+        headers: { Authorization: localStorage.getItem("token") }
+      })
+      .then(res => {
+        console.log(res.data);
+        dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data});
+      })
+      .catch(err => {
+        console.log(err.response);
+        if (err.response.status === 403) {
+          localStorage.removeItem("token");
+        }
+        dispatch({ type: FETCH_DATA_FAILURE, payload: err.response });
+      });
+  };
 
 export const addTool = tool => dispatch => {
   dispatch({

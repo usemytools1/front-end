@@ -29,6 +29,7 @@ const initialState = {
       desc: "you melt things with this"
     }
   ],
+
   fetchingTools: false,
   tools: [
     {
