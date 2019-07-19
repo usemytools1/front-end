@@ -6,6 +6,7 @@ import ToolList from "./components/ToolComps/ToolList";
 import ToolsUserIsBorrowing from "./components/UsersTools/ToolsUserIsBorrowing";
 import ToolsUserOwns from "./components/UsersTools/ToolsUserOwns";
 import AddATool from "./components/ToolComps/AddATool";
+import BorrowTool from "./components/ToolComps/BorrowTool";
 import './App.css'
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
                 <Route path="/borrowing" render={props => <ToolsUserIsBorrowing {...props} />} />
                 <Route path="/owns" render={props => <ToolsUserOwns {...props} />} />
                 <Route path="/add-tool" render={props => <AddATool {...props} />} />
+                <Route path="/borrow-tool" render={props => <BorrowTool {...props} />} />
                 <Route exact path="/tool-list" render={props => <ToolList {...props} />} />
             </div>
         </Router>
