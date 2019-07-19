@@ -26,7 +26,7 @@ export const signUpAction = creds => dispatch => {
 export const getTools = () => dispatch => {
     dispatch({ type: FETCH_DATA_START });
     axios
-      .get("http://localhost:3333/tools", {
+      .get("https://use-my-tools-1.herokuapp.com/api/tools", {
         headers: { Authorization: localStorage.getItem("token") }
       })
       .then(res => {
