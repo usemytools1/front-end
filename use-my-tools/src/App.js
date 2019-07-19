@@ -30,16 +30,16 @@ function App() {
                             <NavLink className="item" to="/add-tool">Add A Tool</NavLink>
                         </li>
                         <li className="navBarItem">
-                            <NavLink className="item" to="/tool-list">View All Tools</NavLink>
+                            <NavLink exact className="item" to="/tool-list">View All Tools</NavLink>
                         </li>
                     </ul>
                 </nav>
-                <Route exact path="/login" render={props => <Login {...props} />} />
-                <Route exact path="/sign-up" render={props => <SignUp {...props} />} />
-                <Route exact path="/borrowing" render={props => <ToolsUserIsBorrowing {...props} />} />
-                <Route exact path="/owns" render={props => <ToolsUserOwns {...props} />} />
-                <Route exact path="/add-tool" render={props => <AddATool {...props} />} />
-                <Route path="/tool-list" render={props => <ToolList {...props} />} />
+                <Route path="/login" render={props => <Login {...props} />} />
+                <Route path="/sign-up" render={props => <SignUp {...props} />} />
+                <Route path="/borrowing" render={props => <ToolsUserIsBorrowing {...props} />} />
+                <Route path="/owns" render={props => <ToolsUserOwns {...props} />} />
+                <Route path="/add-tool" render={props => <AddATool {...props} />} />
+                <Route exact path="/tool-list" render={props => <ToolList {...props} />} />
             </div>
         </Router>
 
