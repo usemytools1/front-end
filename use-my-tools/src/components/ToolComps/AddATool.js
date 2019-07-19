@@ -11,6 +11,7 @@ class AddATool extends Component {
       owner: '',
       availability: true,
       desc: '',
+      id: ''
     }
   }
   inputChange = e => {
