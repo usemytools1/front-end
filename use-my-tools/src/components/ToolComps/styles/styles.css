@@ -82,7 +82,7 @@ html {
   display: flex;
   flex-direction: column;
   width: 50%;
-  height: 25%;
+  height: auto;
   background: #252525;
   align-items: center;
   justify-content: space-between;
