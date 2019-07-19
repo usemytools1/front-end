@@ -4,14 +4,21 @@ import { connect } from "react-redux";
 
 
 class ToolsUserIsBorrowing extends Component {
+
     render() {
         return (
-            <div className="toolCard">
-            <img className="toolImg" alt={this.props.userBorrowingTools.name} src={this.props.userBorrowingTools.img}></img>
-            <h3 className="toolName">{this.props.userBorrowingTools.name}</h3>
-            <p className="toolOwner">Owner: {this.props.userBorrowingTools.owner}</p>
-            <p className="toolDesc">{this.props.userBorrowingTools.desc}</p>
-          </div>
+            <div>
+              <div className="toolCards">
+              {this.props.userBorrowingTools.map(tool => (
+                <div className="toolCard">
+                    <img className="toolImg" alt={tool.name} src={tool.img}></img>
+                    <h3 className="toolName">{tool.name}</h3>
+                    <p className="toolOwner">Owner: {tool.owner}</p>
+                    <p className="toolDesc">{tool.desc}</p>
+                </div>
+                ))}
+            </div>
+            </div>
         )
     }
 }

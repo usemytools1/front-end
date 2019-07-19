@@ -3,7 +3,13 @@ import { LOGIN_START, FETCH_DATA_START, FETCH_DATA_SUCCESS, FETCH_DATA_FAILURE, 
 
 const initialState = {
   userOwnsTools: [],
-  userBorrowingTools: [],
+  userBorrowingTools: [{
+    owner: "",
+    availability: false,
+    name: "blowtorch", 
+    img: "fake.img",
+    desc: "you melt things with this"
+  }],
   fetchingTools: false,
   tools: [{
     owner: "",
