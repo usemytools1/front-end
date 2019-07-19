@@ -1,24 +1,47 @@
-import React from 'react'
+import React from 'react';
+import { Component } from 'react';
+import {getTools} from "../../actions";
+import { connect } from "react-redux";
 import './styles/styles.css'
 
-const tool = props => {
-  return (
-    <div className="toolCard">
-      <img className="toolImg" alt={props.tool.name} src={props.tool.img}></img>
-      <h3 className="toolName">{props.tool.name}</h3>
-      <p className="toolOwner">Owner: {props.tool.owner}</p>
-      <span
-        className={`${props.tool.availability} ? isAvail : isntAvail`}>
-        {props.tool.availability ? 'Available ' : 'Unavailable '}
-      </span>
-      <p className="toolDesc">{props.tool.desc}</p>
-      {
-        props.tool.availability ?
-        <button className="canBeBorrowed">Borrow</button> :
-        <button className="cantBeBorrowed" disabled >Borrow</button>
-      }
-    </div>
-  )
+class Tool extends Component {
+
+  componentDidMount() {
+    this.props.getTools();
+  }
+
+  render() {
+    return (
+      <div className="toolCard">
+        <img className="toolImg" alt={this.props.tool.name} src={this.props.tool.img}></img>
+        <h3 className="toolName">{this.props.tool.name}</h3>
+        <p className="toolOwner">Owner: {this.props.tool.owner}</p>
+        <span
+          className={`${this.props.tool.availability} ? isAvail : isntAvail`}>
+          {this.props.tool.availability ? 'Available ' : 'Unavailable '}
+        </span>
+        <p className="toolDesc">{this.props.tool.desc}</p>
+        {
+          this.props.tool.availability ?
+          <button className="canBeBorrowed">Borrow</button> :
+          <button className="cantBeBorrowed" disabled >Borrow</button>
+        }
+      </div>
+    )
+
+  }
+
 }
 
-export default tool
+const mapStateToProps = state => ({
+  tools: state.tools,
+  error: state.error,
+  isLoading: state.isLoading
+});
+
+
+export default connect(
+  mapStateToProps,
+  {getTools}
+)(Tool);
+
