@@ -11,7 +11,7 @@ class BorrowTool extends React.Component {
         name: "",
         img: "",
         owner: "",
-        availability: true,
+        availability: false,
         desc: ""
       }
     };
@@ -20,21 +20,26 @@ class BorrowTool extends React.Component {
   componentDidMount() {
     const id = this.props.match.params.id;
 
-    const tool = this.props.tool.find(tool => `${tool.id}` === id);
+    console.log(id)
+    const tool = this.props.tools.find(tool => `${tool.id}` === id);
+    console.log(tool)
 
     this.setState({
-      id: tool.id,
-      name: tool.name,
-      img: tool.img,
-      owner: tool.owner,
-      availability: tool.availability,
-      desc: tool.desc
+      tool: {
+        id: tool.id,
+        name: tool.name,
+        img: tool.img,
+        owner: tool.owner,
+        availability: tool.availability,
+        desc: tool.desc
+      }
+
     });
   }
 
   render() {
     return (
-      <div className="Borrow_Tool">
+      <div className="toolCard">
         <img className="toolImg" alt={this.state.tool.name} src={this.state.tool.img} />
         <h3 className="toolName">{this.state.tool.name}</h3>
         <p className="toolOwner">Owner: {this.state.tool.owner}</p>

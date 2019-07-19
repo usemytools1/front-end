@@ -40,7 +40,10 @@ function App() {
                 <Route path="/borrowing" render={props => <ToolsUserIsBorrowing {...props} />} />
                 <Route path="/owns" render={props => <ToolsUserOwns {...props} />} />
                 <Route path="/add-tool" render={props => <AddATool {...props} />} />
-                <Route path="/borrow-tool" render={props => <BorrowTool {...props} />} />
+                <Route
+				path="/borrow-tool/:id"
+				render={props => <BorrowTool {...props} />}
+				/>
                 <Route exact path="/tool-list" render={props => <ToolList {...props} />} />
             </div>
         </Router>
