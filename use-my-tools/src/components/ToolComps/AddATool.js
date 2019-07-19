@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
+import {addTool} from "../../actions";
 import './styles/styles.css'
 
-export default class AddATool extends Component {
+class AddATool extends Component {
   state = {
     tool: {
       name: '',
@@ -9,6 +11,7 @@ export default class AddATool extends Component {
       owner: '',
       availability: true,
       desc: '',
+      id: ''
     }
   }
   inputChange = e => {
@@ -35,13 +38,25 @@ export default class AddATool extends Component {
     return (
       <div className="formDiv">
         <form onSubmit={this.newTool} className="addToolForm">
-          <h2 className="formTitle">Add a Tool</h2>
-          <input type="text" name="name" placeholder="Tool name" value={this.state.tool.name} onChange={this.inputChange}></input>
-          <input type="file" name="img" placeholder="Tool image link" value={this.state.tool.img} onChange={this.inputChange}></input>
-          <input type="text" name="desc" placeholder="Tool description" value={this.state.tool.desc} onChange={this.inputChange}></input>
-          <button className="addToolBtn">Add Tool</button>
+              <h2 className="formTitle">Add a Tool</h2>
+              <input type="text" name="name" placeholder="Tool name" value={this.state.tool.name} onChange={this.inputChange}></input>
+              <input type="file" name="img" placeholder="Tool image link" value={this.state.tool.img} onChange={this.inputChange}></input>
+              <input type="text" name="desc" placeholder="Tool description" value={this.state.tool.desc} onChange={this.inputChange}></input>
+              <button className="addToolBtn">Add Tool</button>
         </form>
       </div>
     )
   }
 }
+
+
+const mapStateToProps = state => ({
+  tools: state.tools,
+  error: state.error,
+  isLoading: state.isLoading
+});
+
+export default connect(
+  mapStateToProps,
+  { addTool }
+)(AddATool);
