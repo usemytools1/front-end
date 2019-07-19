@@ -39,6 +39,14 @@ const initialState = {
       name: "hammer",
       img: "fake.img",
       desc: "you hit things with this"
+    },
+    {
+      id: 1,
+      owner: "",
+      availability: false,
+      name: "nail gun",
+      img: "fake.img",
+      desc: "nails faster"
     }
   ],
   loggingIn: false,

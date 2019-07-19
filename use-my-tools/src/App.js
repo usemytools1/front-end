@@ -31,7 +31,7 @@ function App() {
                             <NavLink className="item" to="/add-tool">Add A Tool</NavLink>
                         </li>
                         <li className="navBarItem">
-                            <NavLink exact className="item" to="/tool-list">View All Tools</NavLink>
+                            <NavLink exact className="item" to="/">View All Tools</NavLink>
                         </li>
                     </ul>
                 </nav>
@@ -44,7 +44,7 @@ function App() {
 				path="/borrow-tool/:id"
 				render={props => <BorrowTool {...props} />}
 				/>
-                <Route exact path="/tool-list" render={props => <ToolList {...props} />} />
+                <Route exact path="/" render={props => <ToolList {...props} />} />
             </div>
         </Router>
 

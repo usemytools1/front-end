@@ -10,9 +10,9 @@ import './styles/styles.css'
      super(props)
    }
 
-  // componentDidMount() {
-  //   this.props.getTools();
-  // }
+  componentDidMount() {
+    this.props.getTools();
+  }
 
   render() {
     return (

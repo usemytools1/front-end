@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { loginAction } from "../../actions";
+import "./styles/styles.css";
 
 
 class Login extends React.Component {
@@ -32,8 +33,9 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="Login" >
         <form onSubmit={this.handleLogin}>
+          <h3>LOGIN</h3>
           <input
             type="text"
             placeholder="Username"
@@ -50,7 +52,7 @@ class Login extends React.Component {
           />
           <button>Login</button>
         </form>
-        <button onClick={this.handleClick}>Sign Up</button>
+        <button className="sign-up" onClick={this.handleClick}>Sign Up</button>
       </div>
     );
   }

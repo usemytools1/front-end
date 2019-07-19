@@ -1,11 +1,25 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #A3A1A5;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #A3A1A5;
+}
+
+:-ms-input-placeholder { /* IE 10+ */
+  color: #A3A1A5;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #A3A1A5;
+}
+
 .App {
   text-align: center;
   width: 100%;
   height: 100%;
   display: flex;
-
+  background-image: linear-gradient(to right bottom, #b0a8b9, #847a85, #585056, #2e2a2c, #000000);
 }
 
 html,
@@ -25,13 +39,14 @@ body,
 } */
 
 .navBar {
-  width: 100px;
+  width: 8%;
   height: 100%;
-  background: black;
+  background: #26232A;
   font-size: 2em;
   z-index: 10;
   display: flex;
   flex-direction: column;
+
 }
 
 .navBarList {
@@ -41,15 +56,24 @@ body,
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  
+  
 }
 
 .navBarItem {
   margin: 0.5em 0;
   font-size: 1.5em;
+  border-bottom: 2px solid #A3A1A5;
+  padding-bottom: 40%;
+  
 }
 
 .item {
   color: white;
   text-decoration: none;
   font-size: 62.5%;
+}
+
+.item:hover {
+  color: #646167;
 }

@@ -1,5 +1,5 @@
 html {
-  font-size: 62.5%
+  font-size: 62.5%;
 }
 
 .toolCards {
@@ -20,6 +20,7 @@ html {
   font-family: arial;
   font-weight: 300;
   margin: 0.25em;
+  
 }
 
 .toolImg {

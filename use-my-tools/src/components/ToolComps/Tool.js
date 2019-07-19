@@ -7,14 +7,14 @@ import './styles/styles.css'
 
 class Tool extends Component {
 
-  // componentDidMount() {
-  //   this.props.getTools();
-  // }
+  componentDidMount() {
+    this.props.getTools();
+  }
 
   render() {
     return (
       <div className="toolCard">
-        <Link to={`borrow-tool/${this.props.tool.id}`}>
+        <Link style={{textDecoration: 'none', color:'White'}} to={`borrow-tool/${this.props.tool.id}`}>
         <img className="toolImg" alt={this.props.tool.name} src={this.props.tool.img}></img>
         <h3 className="toolName">{this.props.tool.name}</h3>
         <p className="toolOwner">Owner: {this.props.tool.owner}</p>
@@ -23,6 +23,7 @@ class Tool extends Component {
           {this.props.tool.availability ? 'Available ' : 'Unavailable '}
         </span>
         <p className="toolDesc">{this.props.tool.desc}</p>
+        
         {
           this.props.tool.availability ?
           <button className="canBeBorrowed">Borrow</button> :
