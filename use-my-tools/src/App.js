@@ -1,11 +1,10 @@
 import React from "react";
 import {
   BrowserRouter as Router,
-//   Route,
+  Route,
   NavLink,
   Redirect
 } from "react-router-dom";
-import { Route, Switch } from "react-router"
 import Login from "./components/registration/Login";
 import SignUp from "./components/registration/SignUp";
 import ToolList from "./components/ToolComps/ToolList";
@@ -54,7 +53,7 @@ class App extends React.Component {
                 </li>
               </ul>
             </nav>
-            <Switch>
+
             <Route
               path="/borrowing"
               render={props => <ToolsUserIsBorrowing {...props} />}
@@ -71,10 +70,8 @@ class App extends React.Component {
             <Route
               exact
               path="/tool-list"
-              component={<ToolList/>}
+              render={props => <ToolList {...props} />}
             />
-            </Switch>
-
           </div>
         </Router>
       );
