@@ -13,11 +13,12 @@ import ToolsUserOwns from "./components/UsersTools/ToolsUserOwns";
 import AddATool from "./components/ToolComps/AddATool";
 import BorrowTool from "./components/ToolComps/BorrowTool";
 import "./App.css";
+import {logoutAction} from './actions'
 class App extends React.Component {
     logout() {
-        localStorage.removeItem('token');
-        localStorage.removeItem('id')
-        this.props.push('/login')
+      localStorage.removeItem("token");
+      localStorage.removeItem("id");
+      logoutAction()
     }
   render() {
     if (!localStorage.getItem("token")) {
@@ -56,12 +57,13 @@ class App extends React.Component {
                   </NavLink>
                 </li>
                 <li className="navBarItem">
-                  <NavLink className="item" to="/login" onClick={this.logout}>
+                  <NavLink className="item" to="/" onClick={this.logout}>
                     Logout
                   </NavLink>
                 </li>
               </ul>
             </nav>
+            <Route exact path="/" render={props => <Login {...props} />} />
 
             <Route
               path="/borrowing"

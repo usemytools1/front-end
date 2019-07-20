@@ -16,7 +16,7 @@ export const loginAction = creds => dispatch => {
   dispatch({ type: LOGIN_START });
   return axios
     .post("https://use-my-tools-1.herokuapp.com/api/auth/login", creds)
-    .then(res =>{ 
+    .then(res =>{
       const {authToken, id} = res.data
       localStorage.setItem("token", authToken)
       return id
@@ -28,7 +28,7 @@ export const signUpAction = creds => dispatch => {
   dispatch({ type: SIGN_UP_START });
   return axios
     .post("https://use-my-tools-1.herokuapp.com/api/auth/register", creds)
-    .then(res =>{ 
+    .then(res =>{
       const {authToken, id} = res.data
       localStorage.setItem("token", authToken)
       return id
@@ -102,8 +102,7 @@ export const updateTool = tool => dispatch => {
     .catch(err => console.log("fail: ", err));
 };
 
-export const logoutAction = () => dispatch => {
-  dispatch({ type: LOGOUT })
-  localStorage.removeItem('token');
-  this.props.history.push('/login')
+export const logoutAction = history => dispatch => {
+  dispatch({ type: LOGOUT });
+  history.push('/');
 }
