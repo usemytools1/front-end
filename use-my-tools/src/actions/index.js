@@ -10,6 +10,8 @@ export const ADD_TOOL = "ADD_TOOL";
 export const DELETE_TOOL = "DELETE_TOOL";
 export const UPDATE_TOOL = "UPDATE_TOOL";
 
+export const LOGOUT = "LOGOUT"
+
 export const loginAction = creds => dispatch => {
   dispatch({ type: LOGIN_START });
   return axios
@@ -99,3 +101,9 @@ export const updateTool = tool => dispatch => {
     .then(res => console.log("worked: ", res, tool))
     .catch(err => console.log("fail: ", err));
 };
+
+export const logoutAction = () => dispatch => {
+  dispatch({ type: LOGOUT })
+  localStorage.removeItem('token');
+  this.props.history.push('/login')
+}
