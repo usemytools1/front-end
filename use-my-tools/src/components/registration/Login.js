@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { loginAction } from "../../actions";
 import "./styles/styles.css";
+import { withRouter } from 'react-router-dom'
 
 
 class Login extends React.Component {
@@ -13,11 +14,11 @@ class Login extends React.Component {
   };
 
   componentDidUpdate(){
-   
+
   }
 
   handleClick = e => {
-      this.props.history.push("sign-up")
+      this.props.history.push("/sign-up")
   }
   handleChange = e => {
     this.setState({
@@ -28,7 +29,7 @@ class Login extends React.Component {
     });
   };
 
-  refreshPage(){ 
+  refreshPage(){
     window.location.reload();
 }
 
@@ -37,7 +38,8 @@ class Login extends React.Component {
     this.props
       .loginAction(this.state.credentials)
       .then(() => this.props.history.push("/tool-list"))
-      
+      .then(() => this.refreshPage())
+    // this.refreshPage()
   };
 
   render() {
@@ -74,7 +76,8 @@ const mapStateToProps = state => ({
   isLoading: state.isLoading
 });
 
+const LoginWithRouter = withRouter(Login)
 export default connect(
   mapStateToProps,
   { loginAction }
-)(Login);
+)(LoginWithRouter);

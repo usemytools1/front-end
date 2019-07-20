@@ -2,9 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import { signUpAction } from "../../actions";
 
-
-
-
 class SignUp extends React.Component {
     state = {
         credentials: {
@@ -60,9 +57,8 @@ const mapStateToProps = state => ({
     error: state.error,
     isLoading: state.isLoading
   });
-  
+
   export default connect(
     mapStateToProps,
     { signUpAction }
   )(SignUp);
-  
