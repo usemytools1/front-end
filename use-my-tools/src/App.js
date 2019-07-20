@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Route,
   NavLink,
-  Redirect
+  withRouter
 } from "react-router-dom";
 import Login from "./components/registration/Login";
 import SignUp from "./components/registration/SignUp";
@@ -13,8 +13,12 @@ import ToolsUserOwns from "./components/UsersTools/ToolsUserOwns";
 import AddATool from "./components/ToolComps/AddATool";
 import BorrowTool from "./components/ToolComps/BorrowTool";
 import "./App.css";
-
 class App extends React.Component {
+    logout() {
+        localStorage.removeItem('token');
+        localStorage.removeItem('id')
+        this.props.push('/login')
+    }
   render() {
     if (!localStorage.getItem("token")) {
       return (
@@ -51,6 +55,11 @@ class App extends React.Component {
                     View All Tools
                   </NavLink>
                 </li>
+                <li className="navBarItem">
+                  <NavLink className="item" to="/login" onClick={this.logout}>
+                    Logout
+                  </NavLink>
+                </li>
               </ul>
             </nav>
 
@@ -79,4 +88,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withRouter(App);
