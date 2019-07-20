@@ -9,7 +9,7 @@ class ToolsUserIsBorrowing extends Component {
         return (
             <div>
               <div className="toolCards">
-              {this.props.userBorrowingTools.map(tool => (
+              {this.props.tools.map(tool => (
                 <div className="toolCard">
                     <img className="toolImg" alt={tool.name} src={tool.img}></img>
                     <h3 className="toolName">{tool.name}</h3>
@@ -25,7 +25,7 @@ class ToolsUserIsBorrowing extends Component {
 
 
 const mapStateToProps = state => ({
-    userBorrowingTools: state.userBorrowingTools,
+    tools: state.tools,
     error: state.error,
     isLoading: state.isLoading
   });

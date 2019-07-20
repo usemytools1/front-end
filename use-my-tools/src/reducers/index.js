@@ -9,41 +9,12 @@ import {
 } from "../actions";
 
 const initialState = {
-  userOwnsTools: [
-    {
-      id: 0,
-      owner: "",
-      availability: false,
-      name: "hammer",
-      img: "fake.img",
-      desc: "you hit things with this"
-    }
-  ],
-  userBorrowingTools: [
-    {
-      id: 5,
-      owner: "",
-      availability: false,
-      name: "blowtorch",
-      img: "fake.img",
-      desc: "you melt things with this"
-    }
-  ],
-
   fetchingTools: false,
   tools: [
     {
-      id: 0,
-      owner: "",
-      availability: false,
-      name: "hammer",
-      img: "fake.img",
-      desc: "you hit things with this"
-    },
-    {
       id: 1,
-      owner: "",
-      availability: false,
+      user_id: 1,
+      borrower_id: 1,
       name: "nail gun",
       img: "fake.img",
       desc: "nails faster"
@@ -56,6 +27,7 @@ const initialState = {
 function reducer(state = initialState, action) {
   switch (action.type) {
     case LOGIN_START: {
+
       return {
         ...state,
         loggingIn: true

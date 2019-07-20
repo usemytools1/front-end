@@ -12,6 +12,10 @@ class Login extends React.Component {
     }
   };
 
+  componentDidUpdate(){
+   
+  }
+
   handleClick = e => {
       this.props.history.push("sign-up")
   }
@@ -24,14 +28,20 @@ class Login extends React.Component {
     });
   };
 
+  refreshPage(){ 
+    window.location.reload();
+}
+
   handleLogin = e => {
     e.preventDefault();
     this.props
       .loginAction(this.state.credentials)
-      .then(() => this.props.history.push("/tool-list"));
+      .then(() => this.props.history.push("/tool-list"))
+      
   };
 
   render() {
+    console.log(this.props)
     return (
       <div className="Login" >
         <form onSubmit={this.handleLogin}>

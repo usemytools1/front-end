@@ -26,7 +26,7 @@ class SignUp extends React.Component {
     handleSignUp = e => {
         e.preventDefault();
         this.props.signUpAction(this.state.credentials)
-        .then(() => this.props.history.push("/tool-list"));
+        .then(() => this.props.history.push("/"));
     };
 
     render() {

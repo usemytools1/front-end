@@ -14,34 +14,43 @@ export const loginAction = creds => dispatch => {
   dispatch({ type: LOGIN_START });
   return axios
     .post("https://use-my-tools-1.herokuapp.com/api/auth/login", creds)
-    .then(res => localStorage.setItem("token", res.data.payload));
+    .then(res =>{ 
+      const {authToken, id} = res.data
+      localStorage.setItem("token", authToken)
+      return id
+    })
+    .then(id => localStorage.setItem("id", id))
 };
 
 export const signUpAction = creds => dispatch => {
   dispatch({ type: SIGN_UP_START });
   return axios
     .post("https://use-my-tools-1.herokuapp.com/api/auth/register", creds)
-    .then(res => localStorage.setItem("token", res.data.payload));
+    .then(res =>{ 
+      const {authToken, id} = res.data
+      localStorage.setItem("token", authToken)
+      return id
+    })
+    .then(id => localStorage.setItem("id", id))
 };
 
 export const getTools = () => dispatch => {
-    dispatch({ type: FETCH_DATA_START });
-    axios
-      .get("https://use-my-tools-1.herokuapp.com/api/tools", {
-        headers: { Authorization: localStorage.getItem("token") }
-      })
-      .then(res => {
-        console.log(res.data);
-        dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data});
-      })
-      .catch(err => {
-        console.log(err.response);
-        if (err.response.status === 403) {
-          localStorage.removeItem("token");
-        }
-        dispatch({ type: FETCH_DATA_FAILURE, payload: err.response });
-      });
-  };
+  dispatch({ type: FETCH_DATA_START });
+  axios
+    .get("https://use-my-tools-1.herokuapp.com/api/tools", {
+      headers: { Authorization: localStorage.getItem("token") }
+    })
+    .then(res => {
+      dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      console.log(err.response);
+      if (err.response.status === 403) {
+        localStorage.removeItem("token");
+      }
+      dispatch({ type: FETCH_DATA_FAILURE, payload: err.response });
+    });
+};
 
 export const addTool = tool => dispatch => {
   dispatch({
