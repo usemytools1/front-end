@@ -5,7 +5,8 @@ import {
   FETCH_DATA_FAILURE,
   ADD_TOOL,
   UPDATE_TOOL,
-  DELETE_TOOL
+  DELETE_TOOL,
+  BORROW_TOOL
 } from "../actions";
 
 const initialState = {
@@ -72,6 +73,11 @@ function reducer(state = initialState, action) {
         ...state,
         tools: [...state.tools, action.payload],
       };
+      case BORROW_TOOL:
+        return {
+          ...state,
+          tools: [...state.tools, action.payload],
+        };
     default:
       return state;
   }

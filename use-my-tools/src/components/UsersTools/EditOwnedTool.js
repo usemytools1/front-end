@@ -11,7 +11,7 @@ class EditOwnedTool extends React.Component {
       tool: {
 				id: "",
 				username: "Chaz",
-				borrower_id: "",
+				borrower: "",
 				name: "",
 				desc: ""
       }
@@ -29,9 +29,8 @@ class EditOwnedTool extends React.Component {
       tool: {
         id: tool.id,
         name: tool.name,
-        img: tool.img,
-        owner: tool.username,
-        availability: tool.availability,
+        username: tool.username,
+        borrower: tool.borrower,
         desc: tool.desc
       }
     });
@@ -66,13 +65,13 @@ class EditOwnedTool extends React.Component {
               value={this.state.tool.name}
               onChange={this.inputChange}
             />
-            <input
+            {/* <input
               type="file"
               name="img"
               placeholder="Tool image link"
               value={this.state.tool.img}
               onChange={this.inputChange}
-            />
+            /> */}
             <input
               type="text"
               name="desc"

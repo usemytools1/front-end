@@ -15,7 +15,6 @@ class ToolsUserIsBorrowing extends Component {
           .filter(tool => tool.borrower_id === 4)
           .map(tool => (
             <div className="toolCard">
-                <img className="toolImg" alt={tool.name} src={tool.img} />
                 <h3 className="toolName">{tool.name}</h3>
                 <p className="toolOwner">Owner: {tool.username}</p>
                 <p className="toolDesc">{tool.desc}</p>

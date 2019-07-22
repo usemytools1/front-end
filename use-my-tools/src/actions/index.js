@@ -9,6 +9,7 @@ export const FETCH_DATA_FAILURE = "FETCH_DATA_FAILURE";
 export const ADD_TOOL = "ADD_TOOL";
 export const DELETE_TOOL = "DELETE_TOOL";
 export const UPDATE_TOOL = "UPDATE_TOOL";
+export const BORROW_TOOL = "BORROW_TOOL";
 
 export const LOGOUT = "LOGOUT"
 
@@ -95,6 +96,22 @@ export const updateTool = tool => dispatch => {
     .then(res =>
       dispatch({
         type: UPDATE_TOOL,
+        payload: tool
+      })
+    )
+    .then(res => console.log("worked: ", res, tool))
+    .catch(err => console.log("fail: ", err));
+};
+
+export const borrowTool = tool => dispatch => {
+  dispatch({
+    type: BORROW_TOOL
+  });
+  axios
+    .put("https://use-my-tools-1.herokuapp.com/api/tools/:id", tool)
+    .then(res =>
+      dispatch({
+        type: BORROW_TOOL,
         payload: tool
       })
     )

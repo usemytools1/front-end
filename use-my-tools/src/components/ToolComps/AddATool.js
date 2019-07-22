@@ -10,7 +10,7 @@ class AddATool extends Component {
     tool: {
       id: uuid.v4(),
       username: "",
-      borrower_id: "",
+      borrower: "",
       name: "",
       desc: ""
     }
@@ -39,13 +39,13 @@ class AddATool extends Component {
             value={this.state.tool.name}
             onChange={this.inputChange}
           />
-          <input
+          {/* <input
             type="file"
             name="img"
             placeholder="Tool image link"
             value={this.state.tool.img}
             onChange={this.inputChange}
-          />
+          /> */}
           <input
             type="text"
             name="desc"

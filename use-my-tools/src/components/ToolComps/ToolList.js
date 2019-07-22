@@ -17,7 +17,6 @@ class ToolList extends Component {
   render() {
     return (
       <div>
-        <a href="/add-tool">Add A Tool</a>
         <div className="toolCards">
           {this.props.tools.map((tool, i) => {
             return <Tool key={i} tool={tool} />;

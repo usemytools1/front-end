@@ -12,26 +12,35 @@ class Tool extends Component {
   }
 
   render() {
+    if(this.props.borrower === ''){
     return (
       <div className="toolCard">
         <Link style={{textDecoration: 'none', color:'White'}} to={`borrow-tool/${this.props.tool.id}`}>
-        <img className="toolImg" alt={this.props.tool.name} src={this.props.tool.img}></img>
         <h3 className="toolName">{this.props.tool.name}</h3>
-        <p className="toolOwner">Owner: {this.props.tool.owner}</p>
+        <p className="toolOwner">Owner: {this.props.tool.username}</p>
         <span
-          className={`${this.props.tool.availability} ? isAvail : isntAvail`}>
-          {this.props.tool.availability ? 'Available ' : 'Unavailable '}
+          className='isAvail'>
+          Available
         </span>
         <p className="toolDesc">{this.props.tool.desc}</p>
-{/*         
-        {
-          this.props.tool.availability ?
-          <button className="canBeBorrowed">Borrow</button> :
-          <button className="cantBeBorrowed" disabled >Borrow</button>
-        } */}
         </Link>
       </div>
     )
+    }else{
+      return (
+        <div className="toolCard">
+          <Link style={{textDecoration: 'none', color:'White'}} to={`borrow-tool/${this.props.tool.id}`}>
+          <h3 className="toolName">{this.props.tool.name}</h3>
+          <p className="toolOwner">Owner: {this.props.tool.username}</p>
+          <span
+            className={'isntAvail'}>
+            Unavailable
+          </span>
+          <p className="toolDesc">{this.props.tool.desc}</p>
+          </Link>
+        </div>
+      )
+    }
 
   }
 
