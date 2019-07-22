@@ -9,7 +9,7 @@ class AddATool extends Component {
   state = {
     tool: {
       id: uuid.v4(),
-      username: "",
+      username: localStorage.getItem("username"),
       borrower: "",
       name: "",
       desc: ""

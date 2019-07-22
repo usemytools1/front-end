@@ -38,6 +38,10 @@ class BorrowTool extends React.Component {
     });
   }
 
+  historyPush () {
+    this.props.history.push("/tool-list");
+  }
+
   clickHandler = e => {
     e.preventDefault();
     this.setState({
@@ -50,10 +54,11 @@ class BorrowTool extends React.Component {
       }
     })
     this.borrowHandler()
+    this.historyPush()
   }
 
   borrowHandler = e => {
-    this.props.borrowTool(this.state.tool);
+    this.props.borrowTool(this.state.tool)
   };
 
   render() {

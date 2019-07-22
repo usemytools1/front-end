@@ -18,11 +18,11 @@ export const loginAction = creds => dispatch => {
   return axios
     .post("https://use-my-tools-1.herokuapp.com/api/auth/login", creds)
     .then(res =>{
-      const {authToken, id} = res.data
+      const {authToken, username} = res.data
       localStorage.setItem("token", authToken)
-      return id
+      return username
     })
-    .then(id => localStorage.setItem("id", id))
+    .then(username => localStorage.setItem("username", username))
 };
 
 export const signUpAction = creds => dispatch => {
@@ -30,11 +30,11 @@ export const signUpAction = creds => dispatch => {
   return axios
     .post("https://use-my-tools-1.herokuapp.com/api/auth/register", creds)
     .then(res =>{
-      const {authToken, id} = res.data
+      const {authToken, username} = res.data
       localStorage.setItem("token", authToken)
-      return id
+      return username
     })
-    .then(id => localStorage.setItem("id", id))
+    .then(username => localStorage.setItem("username", username))
 };
 
 export const getTools = () => dispatch => {

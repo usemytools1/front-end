@@ -12,7 +12,7 @@ class ToolsUserIsBorrowing extends Component {
     return (
       <div className="toolCards">
         {this.props.tools
-          .filter(tool => tool.borrower_id === 4)
+          .filter(tool => tool.borrower === localStorage.getItem("username"))
           .map(tool => (
             <div className="toolCard">
                 <h3 className="toolName">{tool.name}</h3>
