@@ -12,14 +12,15 @@ import ToolsUserIsBorrowing from "./components/UsersTools/ToolsUserIsBorrowing";
 import ToolsUserOwns from "./components/UsersTools/ToolsUserOwns";
 import AddATool from "./components/ToolComps/AddATool";
 import BorrowTool from "./components/ToolComps/BorrowTool";
+import EditOwnedTool from "./components/UsersTools/EditOwnedTool";
 import "./App.css";
-import {logoutAction} from './actions'
+import { logoutAction } from "./actions";
 class App extends React.Component {
-    logout() {
-      localStorage.removeItem("token");
-      localStorage.removeItem("id");
-      logoutAction()
-    }
+  logout() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("id");
+    logoutAction();
+  }
   render() {
     if (!localStorage.getItem("token")) {
       return (
@@ -68,6 +69,10 @@ class App extends React.Component {
             <Route
               path="/borrowing"
               render={props => <ToolsUserIsBorrowing {...props} />}
+            />
+            <Route
+              path="/edit-tool/:id"
+              render={props => <EditOwnedTool{...props} />}
             />
             <Route
               path="/owns"
