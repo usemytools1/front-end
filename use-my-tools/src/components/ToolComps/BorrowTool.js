@@ -92,17 +92,6 @@ class BorrowTool extends React.Component {
   }
 }
 
-//   render() {
-//     return (
-//       <div className="toolCard">
-//         <img className="toolImg" alt={this.state.tool.name} src={this.state.tool.img} />
-//         <h3 className="toolName">{this.state.tool.name}</h3>
-//         <p className="toolOwner">Owner: {this.state.tool.owner}</p>
-//         <p className="toolDesc">{this.state.tool.desc}</p>
-//       </div>
-//     );
-//   }
-// }
 
 const mapStateToProps = state => ({
   tools: state.tools,
