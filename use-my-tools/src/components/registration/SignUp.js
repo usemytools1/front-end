@@ -2,9 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import { signUpAction } from "../../actions";
 
-
-
-
 class SignUp extends React.Component {
     state = {
         credentials: {
@@ -26,20 +23,14 @@ class SignUp extends React.Component {
     handleSignUp = e => {
         e.preventDefault();
         this.props.signUpAction(this.state.credentials)
-        .then(() => this.props.history.push("/tool-list"));
+        .then(() => this.props.history.push("/"));
     };
 
     render() {
         return (
         <div>
-            <form onSubmit={this.handleSignUp}>
-            {/* <input
-            type="text"
-            placeholder="Email"
-            name="email"
-            value={this.state.credentials.email}
-            onChange={this.handleChange}
-            /> */}
+            <form className="SignUp" onSubmit={this.handleSignUp}>
+            <h3>SIGN UP</h3>
             <input
             type="text"
             name="username"
@@ -66,9 +57,8 @@ const mapStateToProps = state => ({
     error: state.error,
     isLoading: state.isLoading
   });
-  
+
   export default connect(
     mapStateToProps,
     { signUpAction }
   )(SignUp);
-  

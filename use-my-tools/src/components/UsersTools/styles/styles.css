@@ -1,0 +1,136 @@
+html {
+    font-size: 62.5%
+  }
+  .toolCards {
+    display: flex;
+  }
+  .toolCard {
+    text-align: center;
+    background: #0E3746;
+    width: 10em;
+    height: 200px;
+    font-size: 2em;
+    color: #EAE8DC;
+    border-radius: 0.5em;
+    font-family: arial;
+    font-weight: 200;
+    margin: 0.25em;
+  }
+  .toolImg {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5em
+  }
+  .toolName {
+    margin-top: 0.5em;
+  }
+  .toolInfo {
+    padding: 0.2em 0.5em;
+  }
+  .isAvail {
+    color: #99D815;
+    margin: 0.1em 0;
+  }
+  .isntAvail {
+    color: #BE2623;
+  }
+  .toolDesc {
+    font-size: 0.8em;
+  }
+  .borrowBtn {
+    border: 1px solid #F27777;
+    padding: 0.5em 2em;
+    border-radius: 9999px;
+    color: #F27777;
+    background: none;
+    outline: none;
+  }
+  .borrowBtn:hover {
+    background: #F27777;
+    color: #0E3746;
+  
+  }
+  .borrowBtn:active {
+    transform: translateY(3px)
+  }
+  .toolInfo > * {
+    margin: 0.45em 0;
+  }
+
+  .editToolForm {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    height: auto;
+    background: #252525;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8em;
+    border-radius: 0.5em;
+  }
+
+  .formDiv {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .editToolForm>* {
+    margin: 0.5em
+  }
+  
+  .editToolForm input {
+    border: none;
+    width: 100%;
+    color: white;
+    background: none;
+    border-bottom: 1px solid white;
+    font-size: 2.5em;
+    padding: 0.25em 0;
+    outline: none;
+  }
+  
+  ::placeholder {
+    color: white
+  }
+  
+  .editToolBtn {
+    border-radius: 10000px;
+    padding: 0.5em 5em;
+    color: white;
+    background: none;
+    border: 1px solid white;
+    outline: none;
+    transition: ease 0.25s;
+  }
+  
+  .editToolBtn:hover {
+    background: white;
+    color: #252525;
+    transition: ease 0.25s;
+  }
+
+  .deleteToolBtn{
+    border-radius: 10000px;
+    padding: 0.5em 5em;
+    color: white;
+    background: none;
+    border: 1px solid white;
+    outline: none;
+    transition: ease 0.25s;
+  }
+
+  .deleteToolBtn:hover {
+    background: white;
+    color: #252525;
+    transition: ease 0.25s;
+  }
+
+  
+  .formTitle {
+    color: white;
+    font-size: 3em;
+  }
+  
