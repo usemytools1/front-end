@@ -8,28 +8,22 @@ class ToolsUserIsBorrowing extends Component {
     tools: {}
   }
 
-  componentDidMount() {
-    this.setState({
-      tools: this.props.tools.filter(tool => tool.username = "")
-    })
+  render() {
+    return (
+      <div className="toolCards">
+        {this.props.tools
+          .filter(tool => tool.borrower_id === 4)
+          .map(tool => (
+            <div className="toolCard">
+                <img className="toolImg" alt={tool.name} src={tool.img} />
+                <h3 className="toolName">{tool.name}</h3>
+                <p className="toolOwner">Owner: {tool.username}</p>
+                <p className="toolDesc">{tool.desc}</p>
+            </div>
+          ))}
+      </div>
+    );
   }
-
-    render() {
-        return (
-            <div>
-              <div className="toolCards">
-              {this.props.tools.map(tool => (
-                <div className="toolCard">
-                    <img className="toolImg" alt={tool.name} src={tool.img}></img>
-                    <h3 className="toolName">{tool.name}</h3>
-                    <p className="toolOwner">Owner: {tool.username}</p>
-                    <p className="toolDesc">{tool.desc}</p>
-                </div>
-                ))}
-            </div>
-            </div>
-        )
-    }
 }
 
 

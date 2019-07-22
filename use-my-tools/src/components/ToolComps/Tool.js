@@ -23,12 +23,12 @@ class Tool extends Component {
           {this.props.tool.availability ? 'Available ' : 'Unavailable '}
         </span>
         <p className="toolDesc">{this.props.tool.desc}</p>
-        
+{/*         
         {
           this.props.tool.availability ?
           <button className="canBeBorrowed">Borrow</button> :
           <button className="cantBeBorrowed" disabled >Borrow</button>
-        }
+        } */}
         </Link>
       </div>
     )
