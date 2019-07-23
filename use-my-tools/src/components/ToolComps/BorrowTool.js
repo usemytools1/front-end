@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import "./styles/styles.css";
-import { Link } from 'react-router-dom';
 import { borrowTool } from "../../actions";
 
 
@@ -22,9 +21,7 @@ class BorrowTool extends React.Component {
   componentDidMount() {
     const id = this.props.match.params.id;
 
-    console.log(id)
     const tool = this.props.tools.find(tool => `${tool.id}` === id);
-    console.log(tool)
 
     this.setState({
       tool: {
@@ -44,28 +41,28 @@ class BorrowTool extends React.Component {
 
   clickHandler = e => {
     e.preventDefault();
-    this.setState({
-      tool: {
+    console.log(this.state)
+    const
+      newTool = {
         id: this.state.tool.id,
         name: this.state.tool.name,
         username: this.state.tool.username,
         borrower: localStorage.getItem("username"),
         desc: this.state.tool.desc
       }
-    })
-    this.borrowHandler()
+    console.log(this.state)
+    this.borrowHandler(newTool)
     // this.historyPush()
   }
 
-  borrowHandler = e => {
-    this.props.borrowTool(this.state.tool, this.state.tool.id)
+  borrowHandler = (newTool, e) => {
+    this.props.borrowTool(newTool, this.state.tool.id)
   };
 
   render() {
     if(this.state.tool.borrower === ""){
     return (
       <div className="toolCard">
-        <Link style={{textDecoration: 'none', color:'White'}} to={`borrow-tool/${this.state.tool.id}`}>
         <h3 className="toolName">{this.state.tool.name}</h3>
         <p className="toolOwner">Owner: {this.state.tool.username}</p>
         <span
@@ -73,14 +70,12 @@ class BorrowTool extends React.Component {
           Available
         </span>
         <p className="toolDesc">{this.state.tool.desc}</p>
-        </Link>
         <button onClick={this.clickHandler}>Borrow</button>
       </div>
     )
     }else{
       return (
         <div className="toolCard">
-          <Link style={{textDecoration: 'none', color:'White'}} to={`borrow-tool/${this.state.tool.id}`}>
           <h3 className="toolName">{this.state.tool.name}</h3>
           <p className="toolOwner">Owner: {this.state.tool.username}</p>
           <span
@@ -88,7 +83,6 @@ class BorrowTool extends React.Component {
             Unavailable
           </span>
           <p className="toolDesc">{this.state.tool.desc}</p>
-          </Link>
         </div>
       )
     }

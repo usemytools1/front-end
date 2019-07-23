@@ -43,6 +43,7 @@ class EditOwnedTool extends React.Component {
       tool: { ...this.state.tool, [e.target.name]: e.target.value }
     });
   };
+  
   editTool = e => {
     e.preventDefault();
     this.props.updateTool(this.state.tool, this.state.tool.id);
