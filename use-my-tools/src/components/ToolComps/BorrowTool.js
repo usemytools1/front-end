@@ -38,9 +38,9 @@ class BorrowTool extends React.Component {
     });
   }
 
-  historyPush () {
-    this.props.history.push("/tool-list");
-  }
+  // historyPush () {
+  //   this.props.history.push("/tool-list");
+  // }
 
   clickHandler = e => {
     e.preventDefault();
@@ -54,15 +54,15 @@ class BorrowTool extends React.Component {
       }
     })
     this.borrowHandler()
-    this.historyPush()
+    // this.historyPush()
   }
 
   borrowHandler = e => {
-    this.props.borrowTool(this.state.tool)
+    this.props.borrowTool(this.state.tool, this.state.tool.id)
   };
 
   render() {
-    if(this.state.borrower === ''){
+    if(this.state.tool.borrower === ""){
     return (
       <div className="toolCard">
         <Link style={{textDecoration: 'none', color:'White'}} to={`borrow-tool/${this.state.tool.id}`}>
@@ -88,7 +88,6 @@ class BorrowTool extends React.Component {
             Unavailable
           </span>
           <p className="toolDesc">{this.state.tool.desc}</p>
-          <button onClick={this.clickHandler}>Borrow</button>
           </Link>
         </div>
       )

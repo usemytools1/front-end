@@ -10,7 +10,7 @@ class EditOwnedTool extends React.Component {
     this.state = {
       tool: {
 				id: "",
-				username: "Chaz",
+				username: "",
 				borrower: "",
 				name: "",
 				desc: ""
@@ -45,11 +45,12 @@ class EditOwnedTool extends React.Component {
   };
   editTool = e => {
     e.preventDefault();
-    this.props.updateTool(this.state.tool);
+    this.props.updateTool(this.state.tool, this.state.tool.id);
   };
+  
   deleteTool = e => {
     e.preventDefault();
-    this.props.deleteTool(this.state.tool);
+    this.props.deleteTool(this.state.tool.id);
   }
 
   render() {
@@ -80,7 +81,8 @@ class EditOwnedTool extends React.Component {
               onChange={this.inputChange}
             />
             <button className="editToolBtn">Edit Tool</button>
-            <button onClick={this.deleteTool} className="deleteToolBtn">Delete Tool</button>
+            {/* <button onClick={this.deleteTool} className="deleteToolBtn">Delete Tool</button> */}
+            <a className="deleteToolBtn" onClick={this.deleteTool} href="">Delete Tool</a>
           </form>
         </div>
 

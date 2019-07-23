@@ -8,7 +8,7 @@ import "./styles/styles.css";
 class AddATool extends Component {
   state = {
     tool: {
-      id: uuid.v4(),
+      // id: uuid.v4(),
       username: localStorage.getItem("username"),
       borrower: "",
       name: "",
@@ -25,6 +25,7 @@ class AddATool extends Component {
   };
   newTool = e => {
     e.preventDefault();
+    console.log(this.state)
     this.props.addTool(this.state.tool);
   };
   render() {

@@ -8,7 +8,9 @@ class ToolsUserIsBorrowing extends Component {
     tools: {}
   }
 
+
   render() {
+    console.log(localStorage.getItem("username"))
     return (
       <div className="toolCards">
         {this.props.tools

@@ -60,7 +60,9 @@ export const addTool = tool => dispatch => {
     type: ADD_TOOL
   });
   axios
-    .post("https://use-my-tools-1.herokuapp.com/api/tools", tool)
+    .post("https://use-my-tools-1.herokuapp.com/api/tools", tool, {
+      headers: { Authorization: localStorage.getItem("token") }
+    })
     .then(res =>
       dispatch({
         type: ADD_TOOL,
@@ -71,44 +73,50 @@ export const addTool = tool => dispatch => {
     .catch(err => console.log("fail: ", err));
 };
 
-export const deleteTool = tool => dispatch => {
+export const deleteTool = id  => dispatch => {
   dispatch({
     type: DELETE_TOOL
   });
   axios
-    .delete("https://use-my-tools-1.herokuapp.com/api/tools/:id", tool)
+    .delete(`https://use-my-tools-1.herokuapp.com/api/tools/${id}`, {
+      headers: { Authorization: localStorage.getItem("token") }
+    })
     .then(res =>
       dispatch({
         type: DELETE_TOOL,
-        payload: tool
+        payload: id
       })
     )
-    .then(res => console.log("worked: ", res, tool))
+    .then(res => console.log("worked: ", res, id))
     .catch(err => console.log("fail: ", err));
 };
 
-export const updateTool = tool => dispatch => {
+export const updateTool = (tool, id) => dispatch => {
   dispatch({
     type: UPDATE_TOOL
   });
   axios
-    .put("https://use-my-tools-1.herokuapp.com/api/tools/:id", tool)
+    .put(`https://use-my-tools-1.herokuapp.com/api/tools/${id}`, tool, {
+      headers: { Authorization: localStorage.getItem("token") }
+    })
     .then(res =>
       dispatch({
         type: UPDATE_TOOL,
         payload: tool
       })
     )
-    .then(res => console.log("worked: ", res, tool))
+    .then(res => console.log("id: ", res, id))
     .catch(err => console.log("fail: ", err));
 };
 
-export const borrowTool = tool => dispatch => {
+export const borrowTool = (tool, id)  => dispatch => {
   dispatch({
     type: BORROW_TOOL
   });
   axios
-    .put("https://use-my-tools-1.herokuapp.com/api/tools/:id", tool)
+    .put(`https://use-my-tools-1.herokuapp.com/api/tools/${id}`, tool, {
+      headers: { Authorization: localStorage.getItem("token") }
+    })
     .then(res =>
       dispatch({
         type: BORROW_TOOL,

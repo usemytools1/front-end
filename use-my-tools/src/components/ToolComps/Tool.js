@@ -12,7 +12,7 @@ class Tool extends Component {
   }
 
   render() {
-    if(this.props.borrower === ''){
+    if(this.props.tool.borrower === ''){
     return (
       <div className="toolCard">
         <Link style={{textDecoration: 'none', color:'White'}} to={`borrow-tool/${this.props.tool.id}`}>
